@@ -1,0 +1,58 @@
+#!usr/bin/env bash
+
+# Variaveis
+
+lineb="\033[1;46m                                                                       \033[0m"
+line="\033[1;34m──────────────────────────────────────────────────────────\033[0mPowerBy DCG"
+liner="\033[1;46m                                                                       \033[0m"
+
+#################################################################################################################################
+
+# Interface
+
+clear
+
+echo -e "\033[1;46m\033[1;31mDDboot    \033[1;41m                                                  \033[1;37mVersion 2.0\033[0m"
+ echo -e "$lineb"
+  echo -e " $line"
+echo -e "$liner"
+echo -e "DIGITE SUA SENHA E \033[1;31mAGUARDE A LISTAGEM DE DISPOSITIVOS \033[0m!!!"
+echo -e "\033[1;46m                                                          \033[0m"
+
+sudo fdisk -l | grep Disco | sed 's/, .*//g'
+
+echo -e "\033[1;46m                                                                       \033[0m"
+echo -e "\033[1;47m                                                                       \033[0m"
+echo -e "\033[1;31mDigite apenas o identicador de discos\033[0m  \033[1;35m/dev/sd?\033[0m >>>| \c"
+
+##################################################################################################################################
+
+# Funções
+
+read disc
+
+[[ ! -z $disc ]]
+
+sleep 2
+clear
+
+echo -e "\033[1;46m                                                                                \033[0m"
+echo -e "\033[1;41m                                                                                \033[0m"
+        echo "                            QUAL ISO GOSTARIA DE USAR?"
+echo -e "\033[1;41m                                                                                \033[0m"
+echo -e "\033[1;46m                                                                                \033[0m"
+
+        echo -e "\033[1;34mCOPIE E COLE A ISO AQUI\033[0m >>>| \c"
+
+
+read iso
+
+[[ ! -z $iso ]] && sudo dd if=$iso of=$disc status=progress
+clear
+echo -e "\033[1;46m                                                                                \033[0m"
+echo -e "\033[1;41m                                                                                \033[0m"
+        echo -e "         \033[1;33mTUDO PRONTO!!! VOÇE JA PODE USAR SEU DISPOSITIVO BOOTAVEL.            "
+echo -e "\033[1;41m                                                                                \033[0m"
+echo -e "\033[1;46m                                                                                \033[0m"
+
+
